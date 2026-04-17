@@ -1,0 +1,150 @@
+//space complecity and auxiliary space
+                         /\
+                         |----- extra space taken to solve the problem
+
+// agar ham n size ka arr banate he or solution ke liye ak naya arr banate he to uski space complecity O(n) aye gi cause 2n array
+// so hear S.C = O(n)
+//         A.S = O(n)
+
+// lekin agar ham zero extra space kharch kare to
+// so hear S.C = O(n)
+//         A.S = O(1)
+
+<<<<<<<<<<<<<<<<<<<<<<<<<0>>>>>>>>>>>>>>>>>>>>>>>
+
+Q/ Calculate the T.C
+
+for(int i =1; i<=m; i++){
+for(int j =1; j<=n; j++){
+}
+}
+total no of operation :m*n
+
+T.C =O(m*n)
+
+<<<<<<<<<<<<<<<<<<<<<<<<<0>>>>>>>>>>>>>>>>>>>>>>>
+
+for(int i =1; i<=m; i++){
+for(int j =1; j<=m; j++){
+}
+}
+T.C =O(m'2) m square (quadratic time)
+
+<<<<<<<<<<<<<<<<<<<<<<<<<0>>>>>>>>>>>>>>>>>>>>>>>
+
+for(int i =1; i<=n; i++){
+for(int j =1; j<=g; j++){
+for(int i =1; i<=a; i++){
+for(int j =1; j<=m; j++){
+}
+}
+}
+}
+}
+
+T.C = O(m*n*a*g)
+
+<<<<<<<<<<<<<<<<<<<<<<<<<0>>>>>>>>>>>>>>>>>>>>>>>
+
+Q//
+
+for(int i =1; i<=m; i++){
+for(int j =1; j<=i; j++){
+}
+}
+
+yaha
+i = 1 j = 1
+i = 2 j = 1,2
+i = 3 j = 1,2,3.......
+. . . . . . . . . . . .
+. . . . . . . . . . . .
+. . . . . . . . . . . .
+
+t.n.o = 1+2+3.... n(n+1)/2 = (n'2 + n)/2
+//t.C => O(n'2) // kyu ki n'2 ye square he to is ki oka t jyada he
+
+<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<0>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
+for(int i =1; i<=m; i++){
+for(int j =i+1; j<=n; j++){
+}
+}
+
+t.C => O(m*n)
+
+<<<<<<<<<<<<<<<<<<0>>>>>>>>>>>>>>>>>>>>.
+
+for(int i =1; i<=m; i*=2){
+  sout("dfgh")
+}
+i => 1,2,4,8,16.....n
+
+t.c =O(logn)   // logarthmic
+
+
+<<<<<<<<<<<<<<<<<<<<<<<<<<)>>>>>>>>>>>>>>>>
+
+for(int i =n; i>=1; i/=2){
+  sout("dfgh")
+}
+
+
+for(int i =2; i<=m; i*=3){
+  sout("dfgh")
+}
+
+=> both have O(logn)
+<<<<<<<<<<<<<<<<<<<<<<<<<<<)>>>>>>>>>>>>>>>>>
+
+for(int i =1; i<=n; i*=2){
+for(int j =1; j<=n; j++){
+sout("")
+}
+}
+}
+
+C.T => O(nlogn)
+
+<<<<<<<<<<<<<<<)>>>>>>>>>>>>>>>>>>>>>>>>>>>
+                         _
+0(1)< logn < underroot ,/n < n < nlogn < n'2 <n'3 <2'n
+fast -> to slow
+<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<0>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
+for(int i =2; i*i<=m; i++){
+  sout("dfgh")
+}
+
+tno => root n
+    _
+0(,/n)
+
+<<<<<<<<<<<<<<<<<<<<<<<<<<<<0>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
+for(int i =1; i<=n; i*=2){
+for(int j=1; j<=i; j++){
+sout("")
+}
+}
+t.c = 0(n)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
