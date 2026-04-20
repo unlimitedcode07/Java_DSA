@@ -2,24 +2,13 @@
 import java.util.*;
 
 public class practic {
-    public static List<List<Integer>> generate(int numRows) {
-        List<List<Integer>> arr = new ArrayList<>();
-        for(int i = 0; i<numRows; i++){
-            arr.add(new ArrayList<>());
-            for(int j = 0; j<=i; j++){
-                if(j == 0|| j== i){
-                   arr.get(i).add(j,1);
-                }else{
-                    int val = arr.get(i-1).get(j-1) + arr.get(i-1).get(j);
-                    arr.get(i).add(j,val);
-                }
-            }
-        }
-        return arr;
+
+    public static  boolean searchMatrix(int[][] arr, int t) {
 
     }
     public static void main(String[] args) {
-
-        System.out.println(generate(5));
+        int [][] arr = {{1,4,7,11,15},{2,5,8,12,19},{3,6,9,16,22},{10,13,14,17,24},{18,21,23,26,30}};
+        int a = 0;
+        System.out.println(searchMatrix(arr,a));
     }
 }
