@@ -15,6 +15,7 @@
 //Input: numRows = 5
 //Output: [[1],[1,1],[1,2,1],[1,3,3,1],[1,4,6,4,1]]
 //Example 2:
+
 //
 //Input: numRow
 
@@ -31,7 +32,6 @@ public class p10 {
                        arr.get(i).add(j,1);
                    }
                    else{
-
                        int val = arr.get(i-1).get(j-1)+arr.get(i-1).get(j);
                        arr.get(i).add(j,val);
                    }

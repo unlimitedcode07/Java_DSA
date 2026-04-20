@@ -1,5 +1,5 @@
 import java.util.ArrayList;
-
+//Create a 2D ArrayList (Matrix) in Java and print it in matrix format.”
 public class p9 {
     public static void main(String[] args) {
         ArrayList<Integer> a = new ArrayList<>();

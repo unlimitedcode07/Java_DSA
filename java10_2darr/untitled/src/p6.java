@@ -2,9 +2,9 @@
 // print element of 2d array column - wise / transpose,
 //eg
 
-// 2 3 4      2 4 3
-// 4 5 6   to 3 5 4
-// 3 4 5      4 6 5
+// 2 3 4      2 4 3        00 01 02      00 10 20
+// 4 5 6   to 3 5 4        10 11 12   to 01 11 21
+// 3 4 5      4 6 5        20 21 22      02 12 22
 // for square and non square
 public class p6 {
     public static void main(String[] args) {
