@@ -8,7 +8,7 @@
 // 13 (5+8)  [7]
 // 21 (8+13)  [8]
 
-
+//tc = O(2^n)  // 1 2 ko call. 2 4 ko. 4 8 ko. and so on
 
 public class p15 {
     public static int fib(int n) {
