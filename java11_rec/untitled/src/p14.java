@@ -14,7 +14,8 @@ public class p14 {
 
 
 // asa bhi ho sakta hai ko a bada aye b se to in that case
-//B%A and B%a same hota he [a%b =a if a<b]
+// [a%b =a if a<b]
+// [a%b =a-b if a>b ]
 //mental model
 //20 % 12 = 8 → gcd(12,8)
 //12 % 8 = 4 → gcd(8,4)

@@ -7,6 +7,7 @@ public class p9 {
         public static int pow(int a, int b) {
             if (b == 0) return 1;
 
+
             int half = pow(a, b / 2);
 
             if (b % 2 == 0) {

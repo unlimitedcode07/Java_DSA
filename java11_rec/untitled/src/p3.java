@@ -6,6 +6,8 @@ public class p3 {
         // globaly declar kare to ye hota hai
     }
     public static void fun(){
+
         x = 20;
+
     }
 }
