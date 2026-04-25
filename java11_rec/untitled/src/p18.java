@@ -39,3 +39,32 @@ public class p18 {
         // not optimal
     }
 }
+
+
+//same but simple
+//
+//
+//import java.util.*;
+//
+//public class practic {
+//    public static void main(String[] args) {
+//        System.out.println( uniquePaths(5,8));
+//
+//    }
+//
+//    public static int uniquePaths(int m, int n){
+//        int i = 0;
+//        int j = 0;
+//        return ans(i,j,m,n);
+//    }
+//
+//    public static int ans(int i,int j, int m, int n){
+//        if(i == m || j == n){
+//            return 0;
+//        }
+//        if(i == m-1 && j == n-1){
+//            return 1;
+//        }
+//        return ans(i,j+1, m, n) +ans(i+1,j, m, n);
+//    }
+//}
