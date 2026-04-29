@@ -8,6 +8,7 @@ public class p22 {
             return ;
         }
 
+
         if(r < n){
             ok(n,arr,ans+"(",r+1,l);
         }
@@ -27,3 +28,4 @@ public class p22 {
         System.out.println(generateParenthesis(2));
     }
 }
+

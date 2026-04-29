@@ -1,7 +1,6 @@
 
 import java.util.*;
 public class p26 {
-
     public static boolean isPrime(int n) {
         if (n <= 1) return false;   // 0 and 1 are not prime
         if (n == 2) return true;    // 2 is prime
@@ -14,6 +13,7 @@ public class p26 {
         }
         return true;
     }
+
     public static void main(String[] args) {
 
         System.out.println(isPrime(7));
@@ -38,6 +38,10 @@ public class p26 {
 //            }
 //        }
 //        System.out.println(count);
-
     }
 }
+
+
+
+
+
