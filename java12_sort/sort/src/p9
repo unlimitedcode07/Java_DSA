@@ -1,0 +1,214 @@
+level 1 = n
+level 2 = n/2 + n/2 = n
+level 3 = n/4 + n/4 + n/4 + n/4 = n
+               :
+               :
+               1
+               and no of term ya ha ati hai {log n }
+               and each level taking time n so
+               n log n
+
+               original 2n * (log n+1)
+
+and space complexcity is O(2n) n + n/2+n/4+...2n i.e O(n)
+////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////
+
+               🌳Example with n = 32  n is size of array
+               Levels of recursion:
+               Level 0 → 32 elements
+               Level 1 → 16 + 16
+               Level 2 → 8 + 8 + 8 + 8
+               Level 3 → 4 + 4 + 4 + 4 + 4 + 4 + 4 + 4
+               Level 4 → 2 × 16 times
+               Level 5 → 1 × 32 times
+
+               🧠 Work done at each level
+
+               At every level, you process ALL elements once during merging:
+
+               Level 0 → 32
+               Level 1 → 16+16 = 32
+               Level 2 → 8+8+8+8 = 32
+               Level 3 → 4×8 = 32
+               Level 4 → 2×16 = 32
+               Level 5 → 1×32 = 32
+
+               👉 So:
+
+               Work per level = n = 32
+
+               For n = 32:
+                tc  Total Work = Work per level × Number of levels
+                               = n × log₂(n)
+                               = 32 × log₂(32)
+                               = 32 × 5
+                               = 160  (exact work units)
+
+               ⇒ O(n log n)
+
+
+///////////////////////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+compare with remeaning sorting
+
+Nice — now you’re thinking like someone who actually **understands patterns**, not just memorizing. Let’s do the *same style breakdown* for the 3 basic sorts:
+
+* 🔼 Bubble Sort (max goes to end)
+* 🔽 Selection Sort (min goes to start)
+* ✍️ Insertion Sort
+
+And we’ll use n = 32 just like your merge sort notes.
+
+
+
+
+Your merge sort had:
+_______________________________
+|                             |
+|  divide → levels → merge
+|_____________________________|
+
+But these sorts are not divide-and-conquer.
+
+👉 Instead, they work like:
+_______________
+|              |
+  Pass 1
+  Pass 2
+  Pass 3
+    ...
+  Pass (n-1)
+|______________|
+
+So instead of “levels”, think “passes”
+
+
+🔼 1. Bubble Sort (Max goes to end)
+
+💡 Idea:
+_________________________________________________________
+|                                                       |
+| Each pass pushes the **largest element to the end
+|_______________________________________________________|
+
+🌳 Structure (n = 32)
+_____________________________
+|                           |
+  Pass 1 → 31 comparisons
+  Pass 2 → 30 comparisons
+  Pass 3 → 29 comparisons
+
+   Pass 31 → 1 comparison
+|___________________________|
+
+🔥 Total Work
+
+= 31 + 30 + 29 + ... + 1
+= n(n-1)/2
+= 32×31/2
+= 496
+
+
+ ✅ Final
+
+
+Total Work = 496
+TC = O(n²)
+
+//////////////////////////////////////////////////////////////
+🔽 2. Selection Sort (Min goes to start)
+
+💡 Idea:
+
+Each pass finds the **minimum** and places it at correct position
+
+🌳 Structure (n = 32)
+__________________________________________________
+|                                                |
+  Pass 1 → find min from 32 → 31 comparisons
+  Pass 2 → find min from 31 → 30 comparisons
+  Pass 3 → 29 comparisons
+  ...
+  Pass 31 → 1 comparison
+  ```
+|________________________________________________|
+
+🔥 Total Work
+
+
+= 31 + 30 + 29 + ... + 1
+= 496
+
+
+⚠️ Important difference
+
+* Bubble → many swaps
+* Selection → only **1 swap per pass**
+
+ ✅ Final
+
+
+Total Work = 496
+TC = O(n²)
+
+
+✍️ 3. Insertion Sort
+
+💡 Idea:
+
+Take element and insert it in correct position in sorted part
+
+🌳 Structure (n = 32)
+
+Worst case (reverse sorted):
+_____________________________
+|                            |
+  Pass 1 → 1 comparison
+  Pass 2 → 2 comparisons
+  Pass 3 → 3 comparisons
+  ...
+  Pass 31 → 31 comparisons
+  ```
+|___________________________|
+
+🔥 Total Work
+
+
+= 1 + 2 + 3 + ... + 31
+= 496
+```
+
+
+⚡ Best Case (IMPORTANT)
+
+If already sorted:
+
+Each pass → 1 comparison
+Total = 31
+TC = O(n)
+
+
+ ✅ Final
+
+Worst = 496 → O(n²)
+Best = 32 → O(n)
+
+
+# 🧩 FINAL COMPARISON (n = 32)
+
+| Algorithm        | Work Done   | Time Complexity |
+| ---------------- | ----------- | --------------- |
+| Merge Sort       | ~160        | O(n log n)      |
+| Bubble Sort      | 496         | O(n²)           |
+| Selection Sort   | 496         | O(n²)           |
+| Insertion Sort   | 496 (worst) | O(n²)           |
+| Insertion (best) | 32          | O(n)            |
+
+--
+Bubble → push max to end
+Selection → pick min to front
+Insertion → insert in sorted part
+Merge → divide and combine
+```

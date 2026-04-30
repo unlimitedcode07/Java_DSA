@@ -1,9 +1,59 @@
+//Look and Say Pattern
+//        Difficulty: MediumAccuracy: 62.54%Submissions: 49K+Points: 4
+//        Given an integer n. Return the nth row of the following look-and-say pattern.
+//        1
+//        11
+//        21
+//        1211
+//        111221
+//        Look-and-Say Pattern:
+//
+//        To generate a member of the sequence from the previous member, read off the digits of the previous member, counting the number of digits in groups of the same digit. For example:
+//
+//        1 is read off as "one 1" or 11.
+//        11 is read off as "two 1s" or 21.
+//        21 is read off as "one 2, then one 1" or 1211.
+//        1211 is read off as "one 1, one 2, then two 1s" or 111221.
+//        111221 is read off as "three 1s, two 2s, then one 1" or 312211.
+//        Examples:
+//
+//        Input: n = 5
+//        Output: 111221
+//        Explanation: The 5th row of the given pattern will be 111221.
+//        Input: n = 3
+//        Output: 21
+//        Explanation: The 3rd row of the given pattern will be 21.
+//
+//        Constraints:
+//        1 ≤ n ≤ 30
+//
+//
+
+
 import java.util.ArrayList;
 
 public class p3 {
+    public static String countAndSay(int n) {
+       if(n == 1){
+           return "1";
+       }
+       String ans = countAndSay(n-1) +"#";
+       int i = 0; int j = 0;
+       String op = "";
+       while(j<ans.length()){
+         if(ans.charAt(i) == ans.charAt(j)) j++;
+         else{
+             op = op+(j-i);
+             op = op+ans.charAt(i);
+             i = j;
+         }
+       }
+//        op = op+(j-i);
+//        op = op+ans.charAt(i);
+       return op;
+
+    }
     public static void main(String[] args) {
-        ArrayList<String> arr= new ArrayList<>();
-        arr.add("asdfghjk");
-        System.out.println(arr.get(0).charAt(1));
+        System.out.println(countAndSay(3));
     }
 }
