@@ -1,3 +1,6 @@
+// merg sort se jyada fast and stable algo hehi nahi
+
+
 level 1 = n
 level 2 = n/2 + n/2 = n
 level 3 = n/4 + n/4 + n/4 + n/4 = n
