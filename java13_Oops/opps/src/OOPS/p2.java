@@ -1,6 +1,6 @@
 package OOPS;
 class Student1{  // means  class == classification
-    ///  this is khudaka data types
+    // this is khudaka data types
     String name;
     int rno;
     double cgpa;

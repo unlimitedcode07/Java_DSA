@@ -26,10 +26,10 @@ public class p1 {
        // s1,s2,s3 are object and Student is class
         // object is real life entiti and class is blue print
 
-        System.out.println(s1.name +" "+s1.rno);
+        System.out.println(s1.name +" "+s1.rno+" "+s1);
         // print
         // kp 67
-
+        // OOPS.p1$Student@5f184fc6
         //Update
         s1.rno = 45;
         System.out.println(s1.rno);
