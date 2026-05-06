@@ -1,0 +1,9 @@
+class =>
+class is a user defind blueprint of consisting of attributs and methods
+
+eg car - attribute -company
+                   - color
+                   - price
+
+method/functinality  - run
+                     - stop
