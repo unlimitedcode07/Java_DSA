@@ -1,13 +1,5 @@
 package linkdlist1;
 
-class Node{
-    int val;
-    Node next ;
-    Node(int val){
-        this.val = val;
-    }
-}
-
 public class p1 {
     public static void main(String[] args) {
        Node a = new Node(10);
