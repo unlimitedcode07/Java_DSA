@@ -5,6 +5,7 @@ import java.util.Stack;
 // this is monotonic stack idea
 //this is the imp algo in stack this si my version for understanding
 // beter is in p5.png
+// but for understanding this is better
 public class p4 {
    static class Solution {
         public ArrayList<Integer> nextLargerElement(int[] arr) {
