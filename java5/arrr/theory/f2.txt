@@ -1,0 +1,187 @@
+
+First: what problem are we trying to solve?
+
+In many problems, the question is basically:
+
+> How many ways can I choose or arrange things?”
+
+Depending on whether **order matters or not, we use nPr or nCr.
+
+
+1️⃣ nPr (Permutation)
+
+🔹 Meaning
+
+nPr = number of ways to ARRANGE r items from n items
+
+👉 Order matters
+
+📌 Formula
+
+    nPr= !n/ (n−r)!
+
+✅ Example (Order matters)
+
+Question:
+You have **3 students: A, B, C**
+How many ways can you choose **1st and 2nd position**?
+
+Possible arrangements:
+
+* AB
+* BA
+* AC
+* CA
+* BC
+* CB
+
+👉 **6 ways**
+
+Now calculate:
+[
+3P2 = 3!/(3-2)! = 3×2 = 6
+]
+
+✔ Matches
+
+---
+
+### 🧠 When to use nPr?
+
+Use **Permutation** when:
+
+* Ranking
+* Seating
+* Passwords
+* Order / position is important
+
+Examples:
+
+* Who comes **1st, 2nd, 3rd**
+* Seating people in chairs
+* Arranging digits
+
+---
+
+# 2️⃣ nCr (Combination)
+
+### 🔹 Meaning
+
+**nCr = number of ways to SELECT r items from n items**
+
+👉 **Order does NOT matter**
+
+### 📌 Formula
+
+[
+nCr = n!/r!(n-r)!
+]
+
+---
+
+### ✅ Example (Order does NOT matter)
+
+Same students: **A, B, C**
+
+**Question:**
+How many ways can you choose **2 students for a team**?
+
+Possible teams:
+
+* AB
+* AC
+* BC
+
+👉 **3 ways**
+
+Note:
+
+* AB and BA are SAME team
+
+Now calculate:
+[
+3C2 = 3!/2!1! = 3
+]
+
+✔ Matches
+
+---
+
+### 🧠 When to use nCr?
+
+Use **Combination** when:
+
+* Selection
+* Grouping
+* Teams
+* Subsets
+
+Examples:
+
+* Selecting players
+* Choosing questions
+* Choosing numbers
+
+---
+
+# 🔥 Key Difference (EXAM GOLD)
+
+| Situation            | Use     |
+| -------------------- | ------- |
+| Order matters        | **nPr** |
+| Order doesn’t matter | **nCr** |
+
+---
+
+# 🔥 VERY IMPORTANT RELATION (CP Trick)
+
+[
+nPr = nCr × r!
+]
+
+Why?
+
+* First choose r items (**nCr**)
+* Then arrange them (**r!**)
+
+---
+
+### Example:
+
+How many 3-digit numbers can be made from digits 1–5 without repetition?
+
+Step-by-step CP thinking:
+
+* Choose digits: `5C3`
+* Arrange digits: `3!`
+
+[
+5C3 × 3! = 10 × 6 = 60
+]
+
+Which equals:
+[
+5P3 = 60
+]
+
+---
+
+# ⚡ CP Intuition Shortcut
+
+Ask **ONE QUESTION**:
+
+> “If I swap positions, does it create a NEW answer?”
+
+* **Yes** → `nPr`
+* **No** → `nCr`
+
+---
+
+# 🎯 Where you’ll see this in CP
+
+* Probability
+* Counting ways
+* Subsets
+* Bitmask DP
+* Graph counting
+* Strings / digit problems
