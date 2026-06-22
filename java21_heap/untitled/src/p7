@@ -1,0 +1,213 @@
+Ahh, now I understand. You're asking:
+
+> "How would I do this entire `Student`, `Comparable`, `Comparator`, `sort by name`, `sort by roll_num`, `sort by cgpa` thing in JavaScript?"
+
+### Java
+
+```java
+Collections.sort(list);
+```
+
+works because you implemented:
+
+```java
+public int compareTo(Student s){
+    return this.name.compareTo(s.name);
+}
+```
+
+JavaScript has **no Comparable interface**.
+
+Instead, you pass the comparison function directly into `sort()`.
+
+---
+
+## JavaScript Version
+
+```js
+function Student(name, roll_num, cgpa) {
+    this.name = name;
+    this.roll_num = roll_num;
+    this.cgpa = cgpa;
+}
+
+const a = new Student("kalpesh", 5, 9);
+const b = new Student("tejas", 4, 10);
+const c = new Student("om", 1, 11);
+const d = new Student("nishant", 2, 13);
+const e = new Student("ayush", 3, 12);
+
+const list = [a, b, c, d, e];
+```
+
+---
+
+## Sort by Name
+
+Java:
+
+```java
+Collections.sort(list);
+```
+
+JavaScript:
+
+```js
+list.sort((s1, s2) => s1.name.localeCompare(s2.name));
+```
+
+Output:
+
+```text
+ayush
+kalpesh
+nishant
+om
+tejas
+```
+
+---
+
+## Sort by Roll Number
+
+Java:
+
+```java
+list.sort(Comparator.comparingInt(s -> s.roll_num));
+```
+
+JavaScript:
+
+```js
+list.sort((s1, s2) => s1.roll_num - s2.roll_num);
+```
+
+Output:
+
+```text
+om
+nishant
+ayush
+tejas
+kalpesh
+```
+
+---
+
+## Sort by Roll Number Descending
+
+Java:
+
+```java
+Integer.compare(s2.roll_num, s1.roll_num)
+```
+
+JavaScript:
+
+```js
+list.sort((s1, s2) => s2.roll_num - s1.roll_num);
+```
+
+Output:
+
+```text
+kalpesh
+tejas
+ayush
+nishant
+om
+```
+
+---
+
+## Sort by CGPA
+
+```js
+list.sort((s1, s2) => s1.cgpa - s2.cgpa);
+```
+
+---
+
+## Sort by Name then CGPA
+
+Java:
+
+```java
+Comparator.comparing((Student s) -> s.name)
+          .thenComparingInt(s -> s.cgpa)
+```
+
+JavaScript:
+
+```js
+list.sort((s1, s2) => {
+    if (s1.name !== s2.name) {
+        return s1.name.localeCompare(s2.name);
+    }
+
+    return s1.cgpa - s2.cgpa;
+});
+```
+
+Think:
+
+```text
+Compare names first.
+
+Same name?
+    Compare cgpa.
+Different?
+    Stop there.
+```
+
+---
+
+## Sort by Name then CGPA then Roll Number
+
+Java:
+
+```java
+.thenComparingInt(s -> s.cgpa)
+.thenComparingInt(s -> s.roll_num)
+```
+
+JavaScript:
+
+```js
+list.sort((s1, s2) => {
+
+    if (s1.name !== s2.name) {
+        return s1.name.localeCompare(s2.name);
+    }
+
+    if (s1.cgpa !== s2.cgpa) {
+        return s1.cgpa - s2.cgpa;
+    }
+
+    return s1.roll_num - s2.roll_num;
+});
+```
+
+---
+
+### Funny Translation
+
+Java says:
+
+```java
+Student implements Comparable<Student>
+```
+
+JavaScript says:
+
+```js
+Bro, just give me the comparison function when you sort.
+```
+
+So instead of storing the comparison rule inside the class (`compareTo`), JavaScript usually puts the comparison rule directly inside:
+
+```js
+array.sort((a, b) => ...)
+```
+
+That's the biggest difference. Java likes comparison logic inside the class (`Comparable`), while JavaScript usually passes it directly to `sort()`. 🚀
