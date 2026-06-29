@@ -1,0 +1,87 @@
+/// very imp q
+=> Find Median from Data Stream
+
+//=> js solution ok but not optimal    // optimal is in p18 and in leetcode {same using heap }
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+var MedianFinder = function() {
+        this.arr = [];
+};
+
+/**
+ * @param {number} num
+ * @return {void}
+ */
+MedianFinder.prototype.addNum = function(num) {
+    this.arr.push(num);
+
+};
+
+/**
+ * @return {number}
+ */
+MedianFinder.prototype.findMedian = function() {
+    this.arr = this.arr.sort((a,b)=>a-b);
+    if(this.arr.length%2 == 0){
+      let a = Math.floor((this.arr.length-1)/2);
+      let b = Math.ceil((this.arr.length-1)/2);
+      return (this.arr[a]+this.arr[b])/2;
+    }else{
+      let median = Math.ceil((this.arr.length-1)/2);
+      return this.arr[median];
+    }
+};
+
+/**
+ * Your MedianFinder object will be instantiated and called as such:
+ * var obj = new MedianFinder()
+ * obj.addNum(num)
+ * var param_2 = obj.findMedian()
+ */
+//////////////////////////////////////////////////////////////////////////////////////////
+
+
+////   => java solution {optimised }
+
+class MedianFinder {
+    ArrayList<Integer> arr;
+    PriorityQueue<Integer> min = new PriorityQueue<>();
+    PriorityQueue<Integer> max = new PriorityQueue<>(Collections.reverseOrder());
+    int i;
+    public MedianFinder() {
+        arr = new ArrayList<>();
+        i = 0;
+        min = new PriorityQueue<>();
+        max = new PriorityQueue<>(Collections.reverseOrder());
+    }
+
+    public void addNum(int num) {
+        arr.add(num);
+
+    }
+
+    public double findMedian() {
+      while(i<arr.size()){
+          min.add(arr.get(i));
+          if(max.isEmpty() || min.size()>max.size()) max.add(min.remove());
+          if(min.size()>=1 && max.size()>=1){
+              while(min.peek()<max.peek()){
+                  int a = min.remove();
+                  int b = max.remove();
+                  max.add(a);
+                  min.add(b);
+              }
+          }
+          i++;
+      }
+
+       if(min.size() != max.size()){
+           if(min.size()>max.size()) return min.peek();
+           else return max.peek();
+       }else{
+           return ((double)min.peek()+(double)max.peek())/2.0;
+       }
+    }
+}
+
