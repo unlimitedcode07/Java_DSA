@@ -1,7 +1,7 @@
 /// very imp q
 => Find Median from Data Stream
 
-//=> js solution ok but not optimal    // optimal is in p18 and in leetcode {same using heap }
+//=> js solution ok but not optimal
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////
 
