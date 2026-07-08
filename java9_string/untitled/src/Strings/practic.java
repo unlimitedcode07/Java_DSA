@@ -1,36 +1,27 @@
 package Strings;
-import java.util.*;
-import java.util.ArrayList;
-import java.util.Scanner;
 
-public class practic {
-    public static String getMaxOccuringChar(String s) {
-        char[] ch = s.toCharArray();
-        HashMap<Character , Integer> map = new HashMap<>();
-        for(char el : ch){
-            if(map.get(el) == null){
-               map.put(el,1);
-            }else{
-                map.put(el,map.get(el)+1);
-            }
+import java.util.Arrays;
+
+class practic{
+    public static void main(String[] args) {
+        int num = 10753;
+        int digits = String.valueOf(num).length();
+
+//        int temp = num;
+//        int digits = 0;
+//
+//        while (temp > 0) {
+//            digits++;
+//            temp /= 10;
+//        }
+//
+        int[] arr = new int[digits];
+
+        for (int i = digits - 1; i >= 0; i--) {
+            arr[i] = num % 10;
+            num /= 10;
         }
-        ArrayList<Integer> list = new ArrayList<>(map.values());
-        ArrayList<Character> mlist = new ArrayList<>();
 
-        int max = Collections.max(list);
-        for(char el : map.keySet()){
-           if(map.get(el) == max) {
-               mlist.add(el);
-           }
-        }
-        Collections.sort(mlist);
-        String ans = String.valueOf(mlist.get(0));
-
-      return ans;
-    }
-    public static void main(String[] args){
-      String str =  "testsample";
-        System.out.println(getMaxOccuringChar(str));
-
+        System.out.println(Arrays.toString(arr));
     }
 }

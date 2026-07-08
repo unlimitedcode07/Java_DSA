@@ -1,0 +1,187 @@
+This comes down to the difference between **primitive types** and **objects** in Java.
+
+### `int` vs `Integer`
+
+* `int` → primitive data type.
+* `Integer` → wrapper class (an object that contains an `int`).
+
+```java
+int x = 5;          // primitive
+Integer y = 5;      // object (autoboxing)
+```
+
+---
+
+## Why does `toArray()` return `Integer[]`?
+
+Look at this:
+
+```java
+HashMap<Integer, Integer> map = new HashMap<>();
+```
+
+The keys and values inside a `HashMap` are **objects**, not primitives.
+
+So
+
+```java
+map.values()
+```
+
+returns a
+
+```java
+Collection<Integer>
+```
+
+Notice it is **Collection<Integer>**, **not Collection<int>**.
+
+Now look at the method:
+
+```java
+toArray(T[] a)
+```
+
+It accepts an **array of objects**.
+
+So this works:
+
+```java
+Integer[] valuesArray = map.values().toArray(new Integer[0]);
+```
+
+because
+
+```
+Collection<Integer>
+        ↓
+Integer[]
+```
+
+The types match perfectly.
+
+---
+
+## Why can't I do this?
+
+```java
+int[] valuesArray = map.values().toArray(new int[0]);
+```
+
+❌ Compile Error
+
+Because `int` is **not an object**.
+
+`toArray()` only works with reference types.
+
+Think of it like this:
+
+```
+Collection<Integer>
+
+✓ Integer[]
+✗ int[]
+```
+
+---
+
+## If you want an `int[]`
+
+You have to convert each `Integer` into an `int`.
+
+### Method 1 (Easy)
+
+```java
+int[] values = new int[map.size()];
+
+int i = 0;
+for (Integer val : map.values()) {
+    values[i++] = val;
+}
+
+System.out.println(Arrays.toString(values));
+```
+
+Output
+
+```
+[1, 3, 1, 1, 2]
+```
+
+Java automatically **unboxes** each `Integer` into an `int`.
+
+---
+
+### Method 2 (Streams)
+
+```java
+int[] values = map.values()
+                  .stream()
+                  .mapToInt(Integer::intValue)
+                  .toArray();
+```
+
+---
+
+## Why does `HashMap` use `Integer` instead of `int`?
+
+Because Java Generics only work with objects.
+
+This is illegal:
+
+```java
+HashMap<int, int> map = new HashMap<>();
+```
+
+Compile Error ❌
+
+But this is legal:
+
+```java
+HashMap<Integer, Integer> map = new HashMap<>();
+```
+
+Java automatically converts:
+
+```java
+map.put(5, 10);
+```
+
+into
+
+```java
+map.put(Integer.valueOf(5), Integer.valueOf(10));
+```
+
+This is called **autoboxing**.
+
+And when you retrieve:
+
+```java
+int x = map.get(5);
+```
+
+Java automatically does
+
+```java
+int x = map.get(5).intValue();
+```
+
+This is called **unboxing**.
+
+---
+
+### Rule to remember
+
+| Primitive | Wrapper Object |
+| --------- | -------------- |
+| `int`     | `Integer`      |
+| `double`  | `Double`       |
+| `char`    | `Character`    |
+| `boolean` | `Boolean`      |
+| `long`    | `Long`         |
+| `float`   | `Float`        |
+| `short`   | `Short`        |
+| `byte`    | `Byte`         |
+
+So whenever you're working with collections like `HashMap`, `ArrayList`, `HashSet`, etc., you'll use wrapper classes (`Integer`, `Double`, etc.), not primitive types (`int`, `double`, etc.).

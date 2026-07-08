@@ -1,19 +1,19 @@
-package Strings;
-import java.util.*;
+import java.util.Arrays;
+import java.util.HashMap;
 
-public class p25 {
+public class p8 {
     public static void main(String[] args) {
         int[] arr = {1,1,2,2,3,3,3,3,4};
-       HashMap<Integer , Integer> map = new HashMap<>();
-       for(int el : arr){
-           if(map.get(el) == null){
-               map.put(el,1);
-           }else{
-               map.put(el,map.get(el)+1);
-           }
-       }
+        HashMap<Integer , Integer> map = new HashMap<>();
+        for(int el : arr){
+            if(map.get(el) == null){
+                map.put(el,1);
+            }else{
+                map.put(el,map.get(el)+1);
+            }
+        }
         System.out.println(map);
-       //{1=2, 2=2, 3=4, 4=1}
+        //{1=2, 2=2, 3=4, 4=1}
         //  this is of type collection map.values(), and map.keySet();
 
         Object[] obj = map.keySet().toArray();
