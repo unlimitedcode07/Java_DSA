@@ -1,8 +1,6 @@
 public class p12 {
     // => Amount of Time for Binary Tree to Be Infected
 
-    // my aproach that is optimal in both tc and in space cause it done in single dfs
-
     class lade{
         int max;
         int rtp;
