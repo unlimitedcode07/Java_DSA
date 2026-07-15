@@ -1,0 +1,168 @@
+
+# 1. Count Set Bits
+
+A set bit means a bit whose value is 1.
+
+Example:
+
+11010101
+
+
+Let's count them.
+
+```text
+1 1 0 1 0 1 0 1
+↑ ↑   ↑   ↑   ↑
+
+Total = 5
+```
+
+## Method 1 (Easy)
+
+Check every bit.
+
+```java
+public class Main {
+    public static void main(String[] args) {
+        int n = 0b11010101;   // Binary literal (213 in decimal)
+
+        int count = 0;
+
+        while (n > 0) {
+            if ((n & 1) == 1) { // Check last bit
+                count++;
+            }
+            n = n >> 1;         // Remove last bit
+        }
+
+        System.out.println(count);
+    }
+}
+```
+
+### How it works
+
+Suppose
+
+```text
+n = 11010101
+```
+
+Iteration 1
+
+```text
+11010101
+       &
+00000001
+---------
+00000001
+
+count = 1
+```
+
+Shift right.
+
+```text
+01101010
+```
+
+Again
+
+```text
+01101010
+       &
+00000001
+---------
+00000000
+
+count = 1
+```
+
+Keep doing this until `n` becomes 0.
+
+Time Complexity:
+
+```text
+O(number of bits)
+```
+
+For an `int`, that's at most **32 iterations**.
+
+---
+
+## Method 2 (Best Method - Brian Kernighan Algorithm)
+
+This is asked in interviews.
+
+```java
+public class Main {
+    public static void main(String[] args) {
+
+        int n = 0b11010101;
+
+        int count = 0;
+
+        while (n != 0) {
+            n = n & (n - 1);
+            count++;
+        }
+
+        System.out.println(count);
+    }
+}
+```
+
+### Why does it work?
+
+Take
+
+```text
+11010101
+```
+
+Subtract one
+
+```text
+11010100
+```
+
+Now AND
+
+```text
+11010101
+11010100
+--------
+11010100
+```
+
+The **rightmost 1 disappears**.
+
+Again
+
+```text
+11010100
+
+↓
+
+11010011
+
+AND
+
+11010000
+```
+
+Another **1 disappears**.
+
+Every iteration removes **exactly one set bit**.
+
+If there are **5 ones**, the loop runs **5 times**.
+
+Time Complexity:
+
+```text
+O(number of set bits)
+```
+
+Very fast.
+
+---
